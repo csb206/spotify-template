@@ -30,6 +30,15 @@
         </form>
         <!-- Only show results when we have them -->
         <div ng-show="tracks">
+          <ul>
+            <li ng-repeat="track in tracks">
+              {{track.title}}
+              {{track.img}}
+
+              <img src= {{tracks.album.images}}  alt=""/>
+
+            </li>
+          </ul>
           <!-- Show each track, and create and element for it -->
         </div>
       </div>

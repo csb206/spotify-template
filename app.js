@@ -17,6 +17,7 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
 
   // Adds a given song to our favorites, so we can play it whenever we want
   $scope.addToFavorites = function(favTrack) {
+
   }
 
   // Removes a given track from our favorites list
@@ -52,8 +53,24 @@ var myCtrl = myApp.controller('myCtrl', function($scope, $http) {
       // You can name those properties whatever you want BUT the play()
       // function expects the preview property.
       // Hint: lodash can make creating this object pretty easy :)
-      $scope.tracks = null;
+
+      var trackArray = response.data.tracks.items;
+      trackArray.forEach(function(track) {
+          $scope.trackArray.push
+          {
+            title: track.name;
+            img: track.images[0].url;
+            artist: track.artists[0].name;
+            preview: track.preview_url;
+
+          }
+
+      });
+
+
     }
+
+
 
     function fail(response) {
       // But if it fails, we print a little error message to the console.
